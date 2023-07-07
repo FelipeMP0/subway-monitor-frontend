@@ -10,6 +10,8 @@
     "@types/node": "^16.18.38",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "jest-fetch-mock": "^3.0.3",
+    "node-fetch": "^3.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -27,7 +29,10 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": ["npm run lint", "npm run prettier:fix"]
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint",
+      "npm run prettier:fix"
+    ]
   },
   "browserslist": {
     "production": [
@@ -42,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@typescript-eslint/eslint-plugin": "5.61.0",
     "@typescript-eslint/parser": "5.61.0",
     "eslint": "8.44.0",
