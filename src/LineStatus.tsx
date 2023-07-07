@@ -29,7 +29,7 @@ function LineStatus() {
         setLineStatuses(data.lineStatuses);
         setIsLoading(false);
       } catch (httpError) {
-        setError("Error fetching line statuses. Please try again later.");
+        setError("Erro ao carregar o estado das linhas. Tente novamente mais tarde.");
         setIsLoading(false);
       }
     };
@@ -38,13 +38,13 @@ function LineStatus() {
   }, []);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p>Carregando...</p>;
   }
 
   if (error) {
     return (
       <div>
-        <p>Error: {error}</p>
+        <p>Erro: {error}</p>
       </div>
     );
   }
