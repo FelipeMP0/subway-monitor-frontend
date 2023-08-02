@@ -6,8 +6,10 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM nginx:1.19.0
+FROM nginx:1.23.3
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=builder /app/build .
-ENTRYPOINT nginx -g 'daemon off;' 
+COPY default.conf.template /etc/nginx/conf.d/default.conf.template
+COPY nginx.conf /etc/nginx/nginx.conf
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
